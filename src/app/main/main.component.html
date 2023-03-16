@@ -1,3 +1,46 @@
 <main class="min-vh-100 bg-secondary">
     <h1 class="text-center">MAIN</h1>
+
+    <p *ngIf="prueba" [ngClass]="prueba === '1' ? 'verde' : 'rojo'" [style.font-size]="prueba === '1' ? '32px' : '8px'" appMiDirectiva>
+        {{prueba? prueba : 'vacio'}}
+    </p>
+
+    <button (click)="prueba='1'" class="btn btn-success btn-lg">
+        1
+    </button>
+
+    <button (click)="prueba='2'" class="btn btn-success btn-lg">
+        2
+    </button>
+
+    <ul>
+        <li *ngFor="let persona of personas">
+            {{persona}}
+        </li>
+    </ul>
+
+    <div [ngSwitch]="valorSwitch">
+        <span *ngSwitchCase="'valor1'">Valor 1</span>
+        <p *ngSwitchCase="'valor2'">Valor 2</p>
+        <strong *ngSwitchCase="'valor3'">Valor 3</strong>
+    </div>
+    <button (click)="valorSwitch='valor1'">1</button>
+    <button (click)="valorSwitch='valor2'">2</button>
+    <button (click)="valorSwitch='valor3'">3</button>
+
+    <p>
+        <label for="nombre">Nombre:</label>
+        <input id="nombre" [(ngModel)]="nombre" />
+    </p>
+    <p>
+        <label for="apellido">Apellido:</label>
+        <input id="apellido" [(ngModel)]="apellido" />
+    </p>
+    <button (click)="verDatos()">Mostrar</button>
+    <button (click)="cargarDatos()">Cargar</button>
+
+    <p>{{'MINUSCULAS' | miPipe}}</p>
+    <p>{{'mayusculas' | miPipe : 'Mayus'}}</p>
+
+
 </main>
