@@ -1,7 +1,3 @@
-.rojo {
-    color: red;
-}
-
-.verde {
-    color: green;
+main {
+    height: calc(var(--main-height) - var(--toolbar-height));
 }
